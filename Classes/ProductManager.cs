@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Classes
 {
-    internal class ProductManager
+    class ProductManager
     {
         public void Add()
         {
@@ -17,6 +17,5 @@ namespace Classes
         {
             Console.WriteLine("Product Updated!");
         }
-
     }
 }

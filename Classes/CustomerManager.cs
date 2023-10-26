@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Classes
 {
-    internal class CustomerManager
+    class CustomerManager
     {
         public void Add()
         {
@@ -15,8 +15,7 @@ namespace Classes
 
         public void Update()
         {
-            Console.WriteLine("Costomer Updated!");
+            Console.WriteLine("Customer Updated!");
         }
-
     }
 }
