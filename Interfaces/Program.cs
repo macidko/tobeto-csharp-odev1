@@ -12,14 +12,43 @@ namespace Interfaces
         {
             //InterfacesIntro();
 
-             
-            //Bir interface hiçbir zaman new'lenemez
+            //Demo();
 
-            CustomerManager customerManager = new CustomerManager();
-            customerManager.Add(new OracleCustomerDal());
+            ICustomerDal[] customerDals = new ICustomerDal[3]
+            {
+                new SqlServerCustomerDal(), 
+                new OracleCustomerDal(),
+                new MySqlCustomerDal()
+            };
+
+            foreach (var customerDal in customerDals)
+            {
+                customerDal.Add();
+            }
 
             Console.ReadLine();
 
+        }
+
+        private static void Demo()
+        {
+            ICustomerDal[] customerDals = new ICustomerDal[3]
+            {
+                new SqlServerCustomerDal(),
+                new OracleCustomerDal(),
+                new MySqlCustomerDal(),
+            };
+
+            foreach (var customerDal in customerDals)
+            {
+                customerDal.Add();
+            }
+
+
+            //Bir interface hiçbir zaman new'lenemez
+
+            CustomerManager customerManager = new CustomerManager();
+            //customerManager.Add(new OracleCustomerDal());
         }
 
         private static void InterfacesIntro()
@@ -84,8 +113,8 @@ namespace Interfaces
             public string FirstName { get; set; }
             public string LastName { get; set; }
             public string Departmant { get; set; }
-        }        
-        class Worker: IPerson
+        }
+        class Worker : IPerson
         {
             public int Id { get; set; }
             public string FirstName { get; set; }
@@ -108,6 +137,7 @@ namespace Interfaces
         //{
         //Standardı "I" ile başlamasıdır.
         //en büyük kullanma amacı bir temel nesne oluşturup bütün nesneleri ondan "implemente"(yerine getirmek, uygulamak, hayata geçirmek, gerçekleştirmek) etmektir.
+        //
         //}
     }
 }
